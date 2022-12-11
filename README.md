@@ -98,3 +98,15 @@ const config: GatsbyConfig = {
 
 export default config;
 ```
+
+---
+
+### MDX (markdown + jsx)
+
+`npm install gatsby-plugin-mdx gatsby-source-filesystem @mdx-js/react`\*\*\*\*
+
+```bash
+gatsby-plugin-mdx는 Gatsby와 함께 MDX를 사용하기 위한 공식 통합입니다.
+MDX는 마크다운 안에 포함된 JSX를 작성할 수 있습니다. 사소한 일에는 마크다운의 간결한 구
+(예: # heading)을 사용하고 고급 구성 요소에는 JSX를 사용할 수 있기 때문에 훌륭한 조합입니다.
+```
