@@ -118,3 +118,47 @@ MDX 노드의 slug 필드에서 새 페이지를 만들려면 src/pages/{mdx.fro
 src/pages/{mdx.frontmatter\_\_slug}.js는 데이터 계층의 각 MDX 노드에 대해 하나씩 여러 경로로 전환됩니다.
 
 ex) Gatsby는 슬러그 my-first-post와 함께 MDX 노드를 사용하여 /my-first-post/ 경로에 있는 페이지를 빌드합니다.
+
+### Blog Post
+
+```tsx
+import { graphql, HeadFC, PageProps } from 'gatsby';
+import React from 'react';
+import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
+
+interface IBlogPostProps {
+  data: Queries.PostDetailQuery;
+  children: any;
+}
+
+function BlogPost({ data, children }: IBlogPostProps) {
+  console.log(data, children);
+  return (
+    <Layout title='Blog Post'>
+      <div>{children}</div>
+    </Layout>
+  );
+}
+
+export default BlogPost;
+
+export const query = graphql`
+  query PostDetail($frontmatter__slug: String) {
+    mdx(frontmatter: { slug: { eq: $frontmatter__slug } }) {
+      body
+      frontmatter {
+        author
+        category
+        date
+        slug
+        title
+      }
+    }
+  }
+`;
+
+export const Head = ({ data }: IBlogPostProps) => (
+  <Seo title={`${data.mdx?.frontmatter?.title ?? 'Blog'}`} />
+);
+```
