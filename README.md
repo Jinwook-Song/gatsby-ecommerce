@@ -110,3 +110,11 @@ gatsby-plugin-mdx는 Gatsby와 함께 MDX를 사용하기 위한 공식 통합�
 MDX는 마크다운 안에 포함된 JSX를 작성할 수 있습니다. 사소한 일에는 마크다운의 간결한 구
 (예: # heading)을 사용하고 고급 구성 요소에는 JSX를 사용할 수 있기 때문에 훌륭한 조합입니다.
 ```
+
+### Dynamic page
+
+MDX 노드의 slug 필드에서 새 페이지를 만들려면 src/pages/{mdx.frontmatter\_\_slug}.js에 새 파일을 만들어야 합니다.
+
+src/pages/{mdx.frontmatter\_\_slug}.js는 데이터 계층의 각 MDX 노드에 대해 하나씩 여러 경로로 전환됩니다.
+
+ex) Gatsby는 슬러그 my-first-post와 함께 MDX 노드를 사용하여 /my-first-post/ 경로에 있는 페이지를 빌드합니다.
