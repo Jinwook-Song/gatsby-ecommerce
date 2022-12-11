@@ -162,3 +162,24 @@ export const Head = ({ data }: IBlogPostProps) => (
   <Seo title={`${data.mdx?.frontmatter?.title ?? 'Blog'}`} />
 );
 ```
+
+### Static images
+
+`npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp`
+
+```
+gatsby-plugin-image
+높은 성능 점수를 유지하면서 반응형 이미지를 사이트에 추가하는 것은 수동으로 수행하기 어려울 수 있습니다.
+Gatsby Image 플러그인은 다양한 크기와 형식으로 이미지를 생성하는 어려운 부분을 처리합니다!
+https://www.gatsbyjs.com/plugins/gatsby-plugin-image
+
+gatsby-plugin-sharp
+아래 Sharp 이미지 처리 라이브러리에 구축된 여러 이미지 처리 함수들을 사용할 수 있습니다.
+일반적인 웹 이미지 형식을 처리하기 위한 뛰어난 기본 설정을 제공하는 것을 목표로 합니다.
+https://www.gatsbyjs.com/plugins/gatsby-plugin-sharp
+
+sharp
+일반적인 형식의 큰 이미지를 더 작고 웹 친화적인 JPEG, PNG, WebP, GIF 및
+다양한 크기의 AVIF 이미지로 변환하는 것입니다.
+https://github.com/lovell/sharp
+```
