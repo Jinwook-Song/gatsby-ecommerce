@@ -1,21 +1,41 @@
 import * as React from 'react';
-import { HeadFC, PageProps } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage = ({ data }: PageProps<Queries.StickersQuery>) => {
+  console.log(data);
   return (
     <Layout title='Welcome to DevStickers 🦄'>
-      <div></div>
-      <StaticImage
-        src='https://images.unsplash.com/photo-1625768376503-68d2495d78c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2825&q=80'
-        alt='Stickers on the wall'
-      />
+      {data.allContentfulStikerPack.nodes.map((sticker, idx) => (
+        <article key={idx}>
+          <GatsbyImage
+            image={getImage(sticker.preview?.gatsbyImageData!)!}
+            alt={sticker.name!}
+          />
+          <h2>{sticker.name}</h2>
+          <h4>${sticker.price}</h4>
+        </article>
+      ))}
     </Layout>
   );
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query Stickers {
+    allContentfulStikerPack {
+      nodes {
+        name
+        price
+        preview {
+          gatsbyImageData(placeholder: BLURRED, height: 40)
+        }
+      }
+    }
+  }
+`;
 
 export const Head: HeadFC = () => <Seo title='Home' />;
