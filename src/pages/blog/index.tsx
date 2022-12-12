@@ -6,7 +6,7 @@ import Seo from '../../components/Seo';
 function Blog({ data: { allMdx } }: PageProps<Queries.BlogPostsQuery>) {
   return (
     <Layout title='Blog'>
-      <section>
+      <section className='grid'>
         {allMdx.nodes.map((file) => (
           <article key={file.frontmatter?.title}>
             <Link to={`/blog/${file.frontmatter?.slug}`}>
@@ -17,7 +17,6 @@ function Blog({ data: { allMdx } }: PageProps<Queries.BlogPostsQuery>) {
               <h6>{file.frontmatter?.date}</h6>
               <p>{file.excerpt}</p>
             </Link>
-            <hr />
           </article>
         ))}
       </section>
