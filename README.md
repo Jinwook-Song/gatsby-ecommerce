@@ -1,10 +1,10 @@
 # Gatsby Ecommerce
 
-| 프로젝트 기간 | 22.12.10 ~ |
-| ------------- | ---------- |
-| 프로젝트 목적 | Gatsby     |
-| Github        | ‣          |
-| docs          |            |
+| 프로젝트 기간 | 22.12.10 ~ 22.12.13                 |
+| ------------- | ----------------------------------- |
+| 프로젝트 목적 | Gatsby                              |
+| Github        | ‣                                   |
+| homepage      | https://gatsbystickers.netlify.app/ |
 
 ---
 
@@ -183,3 +183,11 @@ sharp
 다양한 크기의 AVIF 이미지로 변환하는 것입니다.
 https://github.com/lovell/sharp
 ```
+
+---
+
+## Deploy (netlify)
+
+webhook을 통해 contentful이 업로드 될때마다 새롭게 빌드한다.
+
+따라서 사용자는 로딩화면을 볼 필요없이 항상 준비된 html을 볼 수 있다.
